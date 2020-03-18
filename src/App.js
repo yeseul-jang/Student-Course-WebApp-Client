@@ -13,6 +13,8 @@ import './App.css';
 //
 
 import Home from './components/Home';
+import CreateStudent from './components/CreateStudent'
+import ShowStudent from './components/ShowStudent'
 
 //
 function App() {
@@ -24,6 +26,8 @@ function App() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="/home">Home</Nav.Link>
+            <Nav.Link href="/createStudent">Student Registration</Nav.Link>
+            
             
           </Nav>
         </Navbar.Collapse>
@@ -32,9 +36,9 @@ function App() {
       <div>
           
           <Route render ={()=> < Home />} path="/home" />
-
-
-      </div>
+          <Route render ={()=> < CreateStudent />} path="/createStudent" />
+          <Route render ={()=> < ShowStudent />} path="/showStudent/:id" />
+     </div>
 
     </Router>
 
