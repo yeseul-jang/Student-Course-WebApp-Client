@@ -15,6 +15,7 @@ import './App.css';
 import Home from './components/Home';
 import CreateStudent from './components/CreateStudent';
 import EditCourse from './components/EditCourse';
+import EditStudent from './components/EditStudent';
 import ShowStudent from './components/ShowStudent';
 import ShowCourse from './components/ShowCourse';
 
@@ -45,7 +46,7 @@ function App() {
           <Route render ={()=> < Login />} path="/login" />
           <Route render ={()=> < CreateStudent />} path="/createStudent" />
           <Route render ={()=> < ShowStudent />} path="/showStudent/:id" />
-          
+          <Route render ={()=> < EditStudent />} path="/edit/:id" />
           <Route render ={()=> < EditCourse />} path="/editCourse/:id" />
           
           <Route render ={()=> < ShowCourse />} path="/showCourse/:id" />
