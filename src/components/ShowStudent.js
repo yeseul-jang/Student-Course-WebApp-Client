@@ -3,6 +3,7 @@ import axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import { withRouter } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 function ShowStudent(props) {
     const [data, setData] = useState({});
@@ -21,6 +22,37 @@ function ShowStudent(props) {
         fetchData();
     }, []);
 
+    const editStudent = (id) => {
+        props.history.push({
+          pathname: '/edit/' + id
+        });
+      };
+
+    const deleteStudent = (id) => {
+        setShowLoading(true);
+
+        const student = { 
+            studentNumber: data.studentNumber,
+            password: data.password,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            address: data.address,
+            city: data.city,
+            phoneNumber: data.phoneNumber,
+            email: data.email,
+            program:data.program
+        };
+       
+        axios.delete(apiUrl, student)
+        .then((result) => {
+            setShowLoading(false);
+            props.history.push('/list')
+        }).catch((error) => setShowLoading(false));
+    };
+
+
+      
+
     return (
         <div>
             {showLoading && <Spinner animation="border" role="status">
@@ -31,6 +63,13 @@ function ShowStudent(props) {
                 <p>{data.email}</p>
                 <p> Your password is stored the encrypted password for the following:</p>
                 <p>{data.password}</p>
+
+                <p>
+          <Button type="button" variant="primary" onClick={() => { editStudent(data._id) }}>Edit</Button>&nbsp;
+          <Button type="button" variant="danger" onClick={() => { deleteStudent(data._id) }}>Delete</Button>
+       
+        </p>
+
             </Jumbotron>
         </div>
     );
