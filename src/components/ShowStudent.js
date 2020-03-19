@@ -4,7 +4,6 @@ import Spinner from 'react-bootstrap/Spinner';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
 import { withRouter } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
 
 function ShowStudent(props) {
     console.log('props.match.params', props.match.params.id)
@@ -28,7 +27,6 @@ function ShowStudent(props) {
 
     const editStudent = (id) => {
         props.history.push({
-<<<<<<< HEAD
             pathname: '/editStudnet/' + id
         });
     };
@@ -36,16 +34,6 @@ function ShowStudent(props) {
     const deleteStudent = (id) => {
         setShowLoading(true);
         const student = {
-=======
-          pathname: '/edit/' + id
-        });
-      };
-
-    const deleteStudent = (id) => {
-        setShowLoading(true);
-
-        const student = { 
->>>>>>> 898661665763d25236a32235d25a4a2387097ea6
             studentNumber: data.studentNumber,
             password: data.password,
             firstName: data.firstName,
@@ -54,7 +42,6 @@ function ShowStudent(props) {
             city: data.city,
             phoneNumber: data.phoneNumber,
             email: data.email,
-<<<<<<< HEAD
             program: data.program
         };
 
@@ -64,22 +51,6 @@ function ShowStudent(props) {
                 props.history.push('/list')
             }).catch((error) => setShowLoading(false));
     };
-
-=======
-            program:data.program
-        };
-       
-        axios.delete(apiUrl, student)
-        .then((result) => {
-            setShowLoading(false);
-            props.history.push('/list')
-        }).catch((error) => setShowLoading(false));
-    };
-
-
-      
-
->>>>>>> 898661665763d25236a32235d25a4a2387097ea6
     return (
         <div>
             {showLoading && <Spinner animation="border" role="status">
@@ -90,7 +61,7 @@ function ShowStudent(props) {
                 <p>{data.email}</p>
                 <p> Your password is stored the encrypted password for the following:</p>
                 <p>{data.password}</p>
-<<<<<<< HEAD
+
                 <p>{data.address} {data.city}</p>
                 <p>{data.phoneNumber}</p>
                 <p>{data.program}</p>
@@ -98,15 +69,6 @@ function ShowStudent(props) {
                     <Button type="button" variant="primary" onClick={() => { editStudent(data._id) }}>Edit</Button>&nbsp;
                     <Button type="button" variant="danger" onClick={() => { deleteStudent(data._id) }}>Delete</Button>
                 </p>
-=======
-
-                <p>
-          <Button type="button" variant="primary" onClick={() => { editStudent(data._id) }}>Edit</Button>&nbsp;
-          <Button type="button" variant="danger" onClick={() => { deleteStudent(data._id) }}>Delete</Button>
-       
-        </p>
-
->>>>>>> 898661665763d25236a32235d25a4a2387097ea6
             </Jumbotron>
 
         </div>

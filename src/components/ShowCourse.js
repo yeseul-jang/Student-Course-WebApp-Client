@@ -32,12 +32,17 @@ function ShowCourse(props) {
 
   const deleteCourse = (id) => {
     setShowLoading(true);
-    const article = { title: data.title, content: data.content };
-    //
-    axios.delete(apiUrl, article)
+    const course = {
+        courseCode: data.courseCode,
+        courseName: data.courseName,
+        section: data.section,
+        semester: data.semester,
+        studentNumber: data.studentNumber
+    };
+    axios.delete(apiUrl, course)
       .then((result) => {
         setShowLoading(false);
-        props.history.push('/listarticles')
+        props.history.push('/listCourses')
       }).catch((error) => setShowLoading(false));
   };
 

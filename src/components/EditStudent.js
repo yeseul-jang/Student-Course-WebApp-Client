@@ -19,12 +19,7 @@ function EditStudent(props) {
         phoneNumber:'',
         email:'',
         program:''
-  
-<<<<<<< HEAD
-      });
-=======
       });  
->>>>>>> 898661665763d25236a32235d25a4a2387097ea6
   const [showLoading, setShowLoading] = useState(true);
   const apiUrl = "http://localhost:3000/students/" + props.match.params.id;
   //runs only once after the first render
@@ -61,11 +56,8 @@ function EditStudent(props) {
         props.history.push('/showStudent/' + result.data._id)
       }).catch((error) => setShowLoading(false));
   };
-<<<<<<< HEAD
+
   //runs when student enters a field
-=======
-  //runs when user enters a field
->>>>>>> 898661665763d25236a32235d25a4a2387097ea6
   const onChange = (e) => {
     e.persist();
     setStudent({...student, [e.target.name]: e.target.value});
@@ -80,11 +72,8 @@ function EditStudent(props) {
       } 
       <Jumbotron>
         <Form onSubmit={updateStudent}>
-<<<<<<< HEAD
-          <Form.Group>
-=======
+
         <Form.Group>
->>>>>>> 898661665763d25236a32235d25a4a2387097ea6
             <Form.Label> Student Number </Form.Label>
             <Form.Control type="number" name="studentNumber" id="studentNumber" placeholder="Enter Student Number" value={student.studentNumber} onChange={onChange} />
           </Form.Group>
@@ -93,8 +82,6 @@ function EditStudent(props) {
             <Form.Label> Password </Form.Label>
             <Form.Control type="text" name="password" id="password" placeholder="Enter the password" value={student.password} onChange={onChange} />
           </Form.Group>
-<<<<<<< HEAD
-
           <Form.Group>
             <Form.Label> First Name</Form.Label>
             <Form.Control type="text" name="firstName" id="firstName" placeholder="Enter first name" value={student.firstName} onChange={onChange} />
@@ -106,21 +93,8 @@ function EditStudent(props) {
           <Form.Group>
             <Form.Label>Email</Form.Label>
             <Form.Control type="text" name="email" id="email" rows="3" placeholder="Enter email" value={student.email} onChange={onChange} />
-          </Form.Group>
-=======
+          </Form.Group>       
        
-       
-          <Form.Group>
-            <Form.Label> First Name</Form.Label>
-            <Form.Control type="text" name="firstName" id="firstName" placeholder="Enter first name" value={student.firstName} onChange={onChange} />
-          </Form.Group>
-       
-          <Form.Group>
-            <Form.Label> Last Name </Form.Label>
-            <Form.Control type="text" name="lastName" id="lastName" placeholder="Enter last name" value={student.lastName} onChange={onChange} />
-          </Form.Group>
-       
->>>>>>> 898661665763d25236a32235d25a4a2387097ea6
           <Form.Group>
             <Form.Label> Address </Form.Label>
             <Form.Control type="text" name="address" id="address" placeholder="Enter the address" value={student.address} onChange={onChange} />
@@ -145,12 +119,6 @@ function EditStudent(props) {
             <Form.Label> Program </Form.Label>
             <Form.Control type="text" name="program" id="program" placeholder="Enter the program" value={student.program} onChange={onChange} />
           </Form.Group>
-<<<<<<< HEAD
-          
-=======
-       
-    
->>>>>>> 898661665763d25236a32235d25a4a2387097ea6
         
           <Button variant="primary" type="submit">
             Update

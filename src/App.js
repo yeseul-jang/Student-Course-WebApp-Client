@@ -22,7 +22,6 @@ import ListCourses from './components/ListCourses';
 import List from './components/List';
 
 import Login from './components/Login';
-import EditStudent from './components/EditStudent';
 
 //
 function App() {
