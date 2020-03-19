@@ -28,6 +28,8 @@ function ListCourses(props) {
   }, []);
 
   const showDetail = (id) => {
+    console.log("student id: ", id);
+
     props.history.push({
       pathname: '/showCourse/' + id
     });

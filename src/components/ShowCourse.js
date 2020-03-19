@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/Button';
 import { withRouter } from 'react-router-dom';
 
 function ShowCourse(props) {
-  console.log('props.match.params',props.match.params.id)
   const [data, setData] = useState({});
   const [showLoading, setShowLoading] = useState(true);
   const apiUrl = "http://localhost:3000/api/courses/" + props.match.params.id;
@@ -25,16 +24,13 @@ function ShowCourse(props) {
   }, []);
 
   const editCourse = (id) => {
-    console.log(id);
     props.history.push({
       pathname: '/editCourse/' + id
     });
     
   };
-/*
 
-
-  const deleteArticle = (id) => {
+  const deleteCourse = (id) => {
     setShowLoading(true);
     const article = { title: data.title, content: data.content };
     //
@@ -44,11 +40,6 @@ function ShowCourse(props) {
         props.history.push('/listarticles')
       }).catch((error) => setShowLoading(false));
   };
-          <p>
-          <Button type="button" variant="primary" onClick={() => { editArticle(data._id) }}>Edit</Button>&nbsp;
-          <Button type="button" variant="danger" onClick={() => { deleteArticle(data._id) }}>Delete</Button>
-        </p>
-*/
 
   return (
     <div>
@@ -63,6 +54,7 @@ function ShowCourse(props) {
 
         <p>
           <Button type="button" variant="primary" onClick={() => { editCourse(data._id) }}>Edit</Button>&nbsp;
+          <Button type="button" variant="danger" onClick={() => { deleteCourse(data._id) }}>Delete</Button>
         </p>
       </Jumbotron>
     </div>

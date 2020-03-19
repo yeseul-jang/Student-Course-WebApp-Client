@@ -51,7 +51,7 @@ function View (props) {
       <p>{data}</p>
       <button onClick={verifyCookie}>Verify Cookie</button>
       <button onClick={createCourse}>Create Course</button>
-      <button onClick={listCourses(data)}>Course Lists</button>
+      {/* <button onClick={listCourses(data)}>Course Lists</button> */}
 
       <button onClick={deleteCookie}>Log out</button>
       </div>            

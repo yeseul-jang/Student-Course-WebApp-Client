@@ -7,7 +7,6 @@ import Button from 'react-bootstrap/Button';
 import { withRouter } from 'react-router-dom';
 
 function EditCourse(props) {
-  console.log('edituser props:',props.match.params)
   const [course, setCourse] = useState(
     { _id: '',
      courseCode: '',
@@ -42,11 +41,12 @@ function EditCourse(props) {
         semester: course.semester,
         studentNumber: course.studentNumber
     };
+
     axios.put(apiUrl, data)
       .then((result) => {
         console.log('after calling put to update',result.data )
         setShowLoading(false);
-        props.history.push('/showCourse/' + result.data._id)
+        props.history.push('/showCourse/' + props.match.params.id)
       }).catch((error) => setShowLoading(false));
   };
   //runs when user enters a field

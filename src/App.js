@@ -17,8 +17,11 @@ import CreateStudent from './components/CreateStudent';
 import EditCourse from './components/EditCourse';
 import ShowStudent from './components/ShowStudent';
 import ShowCourse from './components/ShowCourse';
+import ListCourses from './components/ListCourses';
+import List from './components/List';
 
 import Login from './components/Login';
+import EditStudent from './components/EditStudent';
 
 //
 function App() {
@@ -33,6 +36,8 @@ function App() {
             <Nav.Link href="/login">Login</Nav.Link>
         
             <Nav.Link href="/createStudent">Student Registration</Nav.Link>
+            <Nav.Link href="/list">All Students</Nav.Link>
+            <Nav.Link href="/listCourses">All Courses</Nav.Link>
             
             
           </Nav>
@@ -49,6 +54,10 @@ function App() {
           <Route render ={()=> < EditCourse />} path="/editCourse/:id" />
           
           <Route render ={()=> < ShowCourse />} path="/showCourse/:id" />
+
+          <Route render ={()=> < List />} path="/list" />
+          <Route render ={()=> < ListCourses />} path="/listCourses" />
+          <Route render ={()=> < EditStudent />} path="/editStudnet/:id" />
           
      </div>
 
