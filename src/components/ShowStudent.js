@@ -3,6 +3,7 @@ import axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table';
 import { withRouter } from 'react-router-dom';
 
 function ShowStudent(props) {
@@ -10,17 +11,22 @@ function ShowStudent(props) {
     const [data, setData] = useState({});
     const [showLoading, setShowLoading] = useState(true);
     const apiUrl = "http://localhost:3000/students/" + props.match.params.id;
+    const apiStudentCourseListUrl = "http://localhost:3000/api/studentCourses/" + props.match.params.id;
+    const [courseData, setCourseData] = useState([]);
 
     useEffect(() => {
-        console.log("11111");
         setShowLoading(false);
         const fetchData = async () => {
             const result = await axios(apiUrl);
             console.log('results from students', result.data);
             setData(result.data);
+
+            const resultCourseList = await axios(apiStudentCourseListUrl);
+            console.log('results from courseList', resultCourseList.data);
+            setCourseData(resultCourseList.data);
+
             setShowLoading(false);
         };
-        console.log("2222");
 
         fetchData();
     }, []);
@@ -70,6 +76,29 @@ function ShowStudent(props) {
                     <Button type="button" variant="danger" onClick={() => { deleteStudent(data._id) }}>Delete</Button>
                 </p>
             </Jumbotron>
+
+            <h2>List of Courses</h2><br />
+
+            <Table responsive>
+                <thead>
+                    <tr>
+                        <th scope="col">Code</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Section</th>
+                        <th scope="col">Semester</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {courseData.map((item, idx) => (
+                        <tr>
+                            <td>{item.courseCode}</td>
+                            <td>{item.courseName}</td>
+                            <td>{item.section}</td>
+                            <td>{item.semester}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </Table>
 
         </div>
     );
