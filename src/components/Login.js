@@ -14,11 +14,13 @@ function Login() {
   const [studentNumber, setStudentNumber] = useState();
   const [password, setPassword] = useState();
   const apiUrl = "http://localhost:3000/signin";
+  
   //send studentNumber and password to the server
   // for initial authentication
   const auth = async () => {
     console.log('calling auth')
     console.log(studentNumber)
+
     try {
       //make a get request to /authenticate end-point on the server
       const loginData = { auth: { studentNumber, password } }
@@ -46,7 +48,7 @@ function Login() {
       // 
       if (res.data.screen !== undefined) {
         setScreen(res.data.screen);
-        console(res.data.screen)
+        console.log(res.data.screen);
       }
     } catch (e) {
       setScreen('auth');
