@@ -23,6 +23,8 @@ function CreateCourse(props) {
     //
     const apiUrl = "http://localhost:3000/api/courses"
     //
+    const [validated, setValidated] = useState(false);
+    //
     const saveCourse = (e) => {
         setShowLoading(true);
         e.preventDefault();
@@ -33,6 +35,13 @@ function CreateCourse(props) {
             semester: course.semester,
             studentNumber: studentNumber };
         //
+        const form = e.currentTarget;
+        if (form.checkValidity() === false) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+    
+        setValidated(true);
         axios.post(apiUrl, data)
         .then((result) => {
             setShowLoading(false);
@@ -56,25 +65,37 @@ function CreateCourse(props) {
             </Spinner> 
         } 
         <Jumbotron>
-            <Form onSubmit={saveCourse}>
+            <Form noValidate validated={validated} onSubmit={saveCourse}>
               <Form.Group>
                 <Form.Label> Course Code</Form.Label>
-                <Form.Control type="text" name="courseCode" id="courseCode" placeholder="Enter Course Code" value={course.courseCode} onChange={onChange} />
+                <Form.Control  required type="text" name="courseCode" id="courseCode" placeholder="Enter Course Code" value={course.courseCode} onChange={onChange} />
+                <Form.Control.Feedback type="invalid">
+              Please provide correct course code.
+            </Form.Control.Feedback>
               </Form.Group>
 
               <Form.Group>
                 <Form.Label> Course Name</Form.Label>
-                <Form.Control type="text" name="courseName" id="courseName" placeholder="Enter Course Name" value={course.courseName} onChange={onChange} />
+                <Form.Control required type="text" name="courseName" id="courseName" placeholder="Enter Course Name" value={course.courseName} onChange={onChange} />
+                <Form.Control.Feedback type="invalid">
+                Please provide course name.
+                </Form.Control.Feedback>
               </Form.Group>
 
               <Form.Group>
                 <Form.Label> Section</Form.Label>
-                <Form.Control type="text" name="section" id="section" placeholder="Enter section" value={course.section} onChange={onChange} />
+                <Form.Control required type="text" name="section" id="section" placeholder="Enter section" value={course.section} onChange={onChange} />
+                <Form.Control.Feedback type="invalid">
+                Please provide section.
+                </Form.Control.Feedback>
               </Form.Group>
 
               <Form.Group>
-                <Form.Label> </Form.Label>
-                <Form.Control type="text" name="semester" id="semester" placeholder="Enter semester" value={course.semester} onChange={onChange} />
+                <Form.Label> Semester</Form.Label>
+                <Form.Control required  type="text" name="semester" id="semester" placeholder="Enter semester" value={course.semester} onChange={onChange} />
+                <Form.Control.Feedback type="invalid">
+                Please provide semester.
+                </Form.Control.Feedback>
               </Form.Group>
                             
               <Button variant="primary" type="submit">
