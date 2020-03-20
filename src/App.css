@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+.LoginForm {
+  width: 40%;
+  margin: auto;
+}
+
+.Buttons {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.ButtonSpace {
+  margin-left: 5px;
+}
+
+.StudentList {
+  width: 70%;
+  margin: auto;
+}
+
+.Title {
+  text-align: center;
+}

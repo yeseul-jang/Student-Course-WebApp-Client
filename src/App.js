@@ -12,7 +12,6 @@ import Nav from 'react-bootstrap/Nav';
 import './App.css';
 //
 
-import Home from './components/Home';
 import CreateStudent from './components/CreateStudent';
 import EditCourse from './components/EditCourse';
 import EditStudent from './components/EditStudent';
@@ -32,12 +31,10 @@ function App() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/home">Home</Nav.Link>
-            <Nav.Link href="/login">Login</Nav.Link>
+            <Nav.Link href="/login">Home</Nav.Link>
         
-            <Nav.Link href="/createStudent">Student Registration</Nav.Link>
-            <Nav.Link href="/list">All Students</Nav.Link>
-            <Nav.Link href="/listCourses">All Courses</Nav.Link>
+            <Nav.Link href="/list">Students</Nav.Link>
+            <Nav.Link href="/listCourses">Courses</Nav.Link>
             
             
           </Nav>
@@ -46,7 +43,6 @@ function App() {
     
       <div>
           
-          <Route render ={()=> < Home />} path="/home" />
           <Route render ={()=> < Login />} path="/login" />
           <Route render ={()=> < CreateStudent />} path="/createStudent" />
           <Route render ={()=> < ShowStudent />} path="/showStudent/:id" />
@@ -63,9 +59,7 @@ function App() {
 
     </Router>
 
-
   );
 }
 
-//<Route render ={()=> < App />} path="/" />
 export default App;

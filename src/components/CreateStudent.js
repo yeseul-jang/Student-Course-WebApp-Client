@@ -61,7 +61,7 @@ function CreateStudent(props) {
   }
 
   return (
-    <div>
+    <div className="StudentList">
       {showLoading && 
         <Spinner animation="border" role="status">
           <span className="sr-only">Loading...</span>

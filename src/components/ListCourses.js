@@ -51,7 +51,7 @@ function ListCourses(props) {
   }
 
   return (
-    <div>
+    <div className="StudentList">
       {data.length !== 0
         ? <div>
           {showLoading && <Spinner animation="border" role="status">
@@ -64,8 +64,9 @@ function ListCourses(props) {
             </Alert>
           }
 
-          <h2>List of Courses</h2><br />
-
+          <h2 className="Title">List of Courses</h2>
+          <br />
+          <br/>
           <Table responsive>
             <thead>
               <tr>
@@ -84,13 +85,15 @@ function ListCourses(props) {
                   <td>{item.section}</td>
                   <td>{item.semester}</td>
                   <td>
-                    <Button onClick={() => { showDetail(item._id) }}>Detail</Button>
-                    <Button onClick={() => { addCourse(item._id) }}>Add Course</Button>
+                    <Button className="ButtonSpace" onClick={() => { showDetail(item._id) }}>Detail</Button>
+                    <Button className="ButtonSpace" variant="success" onClick={() => { addCourse(item._id) }}>Add Course</Button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </Table>
+          <br/>
+          <h5 className="Title">Total: {data.length}</h5>
         </div>
         : < Login />
       }

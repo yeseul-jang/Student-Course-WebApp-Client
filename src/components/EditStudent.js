@@ -72,14 +72,16 @@ function EditStudent(props) {
   }
 
   return (
-    <div>
+    
+    <div className="StudentList">
       {showLoading && 
         <Spinner animation="border" role="status">
           <span className="sr-only">Loading...</span>
         </Spinner> 
       } 
       <Jumbotron>
-    
+
+        <h2 className="Title">Edit Student</h2>
 
         <Form noValidate validated={validated} onSubmit={updateStudent}>
 

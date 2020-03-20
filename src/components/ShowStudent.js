@@ -58,7 +58,7 @@ function ShowStudent(props) {
             }).catch((error) => setShowLoading(false));
     };
     return (
-        <div>
+        <div className="StudentList">
             {showLoading && <Spinner animation="border" role="status">
                 <span className="sr-only">Loading...</span>
             </Spinner>}
@@ -77,7 +77,7 @@ function ShowStudent(props) {
                 </p>
             </Jumbotron>
 
-            <h2>List of Courses</h2><br />
+            <h2 className="Title">List of Courses</h2><br />
 
             <Table responsive>
                 <thead>

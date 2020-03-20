@@ -74,7 +74,7 @@ function ShowCourse(props) {
   };
 
   return (
-    <div>
+    <div className="StudentList">
       {showLoading && <Spinner animation="border" role="status">
         <span className="sr-only">Loading...</span>
       </Spinner>}
@@ -98,7 +98,7 @@ function ShowCourse(props) {
       </Jumbotron>
 
 
-      <h2>List of Students</h2><br />
+      <h2 className="Title">List of Students</h2><br />
 
       <Table responsive>
         <thead>

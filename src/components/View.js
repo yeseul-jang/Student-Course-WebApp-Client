@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CreateCourse from './CreateCourse';
+import Button from 'react-bootstrap/Button';
 //
 import axios from 'axios';
 //
@@ -24,9 +25,9 @@ function View (props) {
   // end-point demonstrates another example for the use
   // of cookie specific response from the server.
   const verifyCookie = async () => {
+    
     try {
       const res = await axios.get('/welcome');
-      console.log(res.data)
       setData(res.data);
     } catch (e) {
       console.log(e);
@@ -37,11 +38,6 @@ function View (props) {
     setCourse('OK')
 
   }
-  const listCourses = (studentNumber) => {
-
-    console.log('in lisArticles: ',studentNumber)
-
-  }
   //
   return (
     <div className="App">
@@ -49,11 +45,10 @@ function View (props) {
       ? <div>
       <p>{screen}</p>
       <p>{data}</p>
-      <button onClick={verifyCookie}>Verify Cookie</button>
-      <button onClick={createCourse}>Create Course</button>
-      {/* <button onClick={listCourses(data)}>Course Lists</button> */}
 
-      <button onClick={deleteCookie}>Log out</button>
+      <Button className="ButtonSpace" variant="primary" onClick={verifyCookie}>Verify Cookie</Button>
+      <Button className="ButtonSpace" variant="success" onClick={createCourse}>Create Course</Button>
+      <Button className="ButtonSpace" variant="warning" onClick={deleteCookie}>Log out</Button>
       </div>            
         : <CreateCourse screen={screen} setScreen={setScreen} />
       }

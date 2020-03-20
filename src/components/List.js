@@ -40,15 +40,19 @@ function List(props) {
   }
 
   return (
-    <div>
+    <div className="StudentList">
       {showLoading && <Spinner animation="border" role="status">
         <span className="sr-only">Loading...</span>
       </Spinner> }
+      <h2 className="Title">List of Students</h2>
+      <br/>
       <ListGroup>
         {data.map((item, idx) => (
-          <ListGroup.Item key={idx} action onClick={() => { showDetail(item._id) }}>{item._id} / {item.fullName}</ListGroup.Item>
+          <ListGroup.Item key={idx} action onClick={() => { showDetail(item._id) }}>{item._id} / {item.studentNumber} / {item.fullName}</ListGroup.Item>
         ))}
       </ListGroup>
+      <br/>      
+      <h5 className="Title">Total: {data.length}</h5>
     </div>
   );
 }
